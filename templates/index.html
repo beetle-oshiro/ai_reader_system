@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>AI解読システム</title>
+</head>
+<body>
+
+    <h1>AI解読システム</h1>
+
+    <form method="POST">
+
+        <!-- 入力欄 -->
+        <textarea name="text" rows="10" cols="50" placeholder="ここに文章を入力">{{ text }}</textarea>
+
+        <br><br>
+
+        <!-- ラジオボタン -->
+        <label>
+            <input type="radio" name="mode" value="rule" {% if mode == "rule" %}checked{% endif %}>
+            規約・契約の解説
+        </label>
+        <br>
+
+        <label>
+            <input type="radio" name="mode" value="error" {% if mode == "error" %}checked{% endif %}>
+            エラーの解説
+        </label>
+        <br>
+
+        <label>
+            <input type="radio" name="mode" value="text" {% if mode == "text" %}checked{% endif %}>
+            文章の解読
+        </label>
+        <br>
+
+        <label>
+            <input type="radio" name="mode" value="job" {% if mode == "job" %}checked{% endif %}>
+            求人票の読み解き
+        </label>
+
+        <br><br>
+
+        <button type="submit">解読する</button>
+
+        <hr>
+
+        <h2>結果</h2>
+
+        {% if result %}
+            <div style="white-space: pre-wrap;">{{ result }}</div>
+
+            <br>
+
+            <!-- ★ここに移動 -->
+            <button type="submit" name="action" value="easy">
+                やさしく説明する
+            </button>
+        {% endif %}
+
+    </form>
+
+</body>
+</html>
