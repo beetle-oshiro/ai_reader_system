@@ -143,6 +143,7 @@ def index():
     text = ""
     mode = ""
     action = ""
+    is_valid_mode = False
 
     mode_name_map = {
         "rule": "規約・契約の解説",
@@ -210,6 +211,7 @@ rule / error / text / job
 
             # ② OK または LACK のときは通常解説へ進む
             if check_result == "OK" or check_result.startswith("LACK|"):
+                is_valid_mode = True
                 lack_message = ""
 
                 if check_result.startswith("LACK|"):
@@ -326,7 +328,13 @@ rule / error / text / job
         except Exception as e:
             result = f"エラー: {e}"
 
-    return render_template("index.html", result=result, text=text, mode=mode)
+    return render_template(
+        "index.html",
+        result=result,
+        text=text,
+        mode=mode,
+        is_valid_mode=is_valid_mode
+    )
 
 
 if __name__ == "__main__":

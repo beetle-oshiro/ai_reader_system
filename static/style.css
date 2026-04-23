@@ -1,0 +1,144 @@
+body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    color: #333;
+}
+
+.form-container {
+    max-width: 760px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-top: 0;
+    color: #333;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.page-description {
+    margin-bottom: 24px;
+    line-height: 1.7;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #d8d0c8;
+    border-radius: 8px;
+    background-color: #fff;
+    line-height: 1.7;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #f69002;
+    box-shadow: 0 0 0 3px rgba(246, 144, 2, 0.15);
+}
+
+.mode-box {
+    background-color: #fffaf3;
+    border-left: 4px solid #f69002;
+    padding: 18px;
+    margin-top: 24px;
+    border-radius: 8px;
+}
+
+.mode-title {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+.radio-item {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    cursor: pointer;
+}
+
+.radio-item input[type="radio"] {
+    margin-right: 8px;
+}
+
+.submit-btn {
+    margin-top: 25px;
+    background-color: #f69002;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #df8200;
+}
+
+.result-box {
+    background-color: #fffaf3;
+    border-left: 4px solid #f69002;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+.result-text {
+    white-space: pre-wrap;
+    line-height: 1.8;
+}
+
+.sub-btn {
+    background-color: #eee;
+    color: #333;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sub-btn:hover {
+    background-color: #ddd;
+}
+
+.action-btn {
+    margin-top: 16px;
+}
+
+.sub-btn:disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.sub-btn:disabled:hover {
+    background-color: #ccc;
+}

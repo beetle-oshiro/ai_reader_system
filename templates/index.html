@@ -3,62 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>AI解読システム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <h1>AI解読システム</h1>
+    <div class="form-container">
 
-    <form method="POST">
+        <h1>AI解読システム</h1>
 
-        <!-- 入力欄 -->
-        <textarea name="text" rows="10" cols="50" placeholder="ここに文章を入力">{{ text }}</textarea>
+        <p class="page-description">
+            入力した文章を目的に合わせてわかりやすく整理・解説します。
+        </p>
 
-        <br><br>
+        <form method="POST">
 
-        <!-- ラジオボタン -->
-        <label>
-            <input type="radio" name="mode" value="rule" {% if mode == "rule" %}checked{% endif %}>
-            規約・契約の解説
-        </label>
-        <br>
+            <div class="input-group">
+                <label for="text">解読したい文章</label>
+                <textarea id="text" name="text" rows="10" placeholder="ここに文章を入力">{{ text }}</textarea>
+            </div>
 
-        <label>
-            <input type="radio" name="mode" value="error" {% if mode == "error" %}checked{% endif %}>
-            エラーの解説
-        </label>
-        <br>
+            <div class="mode-box">
+                <p class="mode-title">解読モード</p>
 
-        <label>
-            <input type="radio" name="mode" value="text" {% if mode == "text" %}checked{% endif %}>
-            文章の解読
-        </label>
-        <br>
+                <label class="radio-item">
+                    <input type="radio" name="mode" value="rule" {% if mode == "rule" %}checked{% endif %}>
+                    規約・契約の解説
+                </label>
 
-        <label>
-            <input type="radio" name="mode" value="job" {% if mode == "job" %}checked{% endif %}>
-            求人票の読み解き
-        </label>
+                <label class="radio-item">
+                    <input type="radio" name="mode" value="error" {% if mode == "error" %}checked{% endif %}>
+                    エラーの解説
+                </label>
 
-        <br><br>
+                <label class="radio-item">
+                    <input type="radio" name="mode" value="text" {% if mode == "text" %}checked{% endif %}>
+                    文章の解読
+                </label>
 
-        <button type="submit">解読する</button>
+                <label class="radio-item">
+                    <input type="radio" name="mode" value="job" {% if mode == "job" %}checked{% endif %}>
+                    求人票の読み解き
+                </label>
+            </div>
 
-        <hr>
+            <button type="submit" class="submit-btn">解読する</button>
 
-        <h2>結果</h2>
+            {% if result %}
+                <div class="result-box">
+                    <h2>結果</h2>
+                    <div class="result-text">{{ result }}</div>
+                </div>
 
-        {% if result %}
-            <div style="white-space: pre-wrap;">{{ result }}</div>
+                <button
+                    type="submit"
+                    name="action"
+                    value="easy"
+                    class="sub-btn action-btn"
+                    {% if not is_valid_mode %}disabled{% endif %}
+                >
+                    やさしく説明する
+                </button>
+            {% endif %}
 
-            <br>
+        </form>
 
-            <!-- ★ここに移動 -->
-            <button type="submit" name="action" value="easy">
-                やさしく説明する
-            </button>
-        {% endif %}
-
-    </form>
+    </div>
 
 </body>
 </html>
